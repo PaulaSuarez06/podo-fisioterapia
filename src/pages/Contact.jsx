@@ -1,6 +1,59 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const services = ['Podología', 'Fisioterapia', 'Información']
+const RECAPTCHA_SITE_KEY = '6LdnkKEqAAAAAPvyqoRAmjXxvE6evlb5z-5Ol90Y'
+
+function useRecaptcha() {
+  const containerRef = useRef(null)
+  const widgetIdRef = useRef(null)
+
+  useEffect(() => {
+    let cancelled = false
+
+    function renderWidget() {
+      if (cancelled || !containerRef.current || widgetIdRef.current !== null) return
+      widgetIdRef.current = window.grecaptcha.render(containerRef.current, {
+        sitekey: RECAPTCHA_SITE_KEY,
+      })
+    }
+
+    if (window.grecaptcha?.render) {
+      renderWidget()
+      return
+    }
+
+    const existingScript = document.querySelector('script[src*="recaptcha/api.js"]')
+    if (existingScript) {
+      existingScript.addEventListener('load', renderWidget)
+      return () => existingScript.removeEventListener('load', renderWidget)
+    }
+
+    const script = document.createElement('script')
+    script.src = 'https://www.google.com/recaptcha/api.js'
+    script.async = true
+    script.defer = true
+    script.addEventListener('load', renderWidget)
+    document.head.appendChild(script)
+
+    return () => {
+      cancelled = true
+      script.removeEventListener('load', renderWidget)
+    }
+  }, [])
+
+  const getResponse = () => {
+    if (widgetIdRef.current === null || !window.grecaptcha) return ''
+    return window.grecaptcha.getResponse(widgetIdRef.current)
+  }
+
+  const reset = () => {
+    if (widgetIdRef.current !== null && window.grecaptcha) {
+      window.grecaptcha.reset(widgetIdRef.current)
+    }
+  }
+
+  return { containerRef, getResponse, reset }
+}
 
 function encodeFormData(data) {
   return Object.keys(data)
@@ -9,6 +62,7 @@ function encodeFormData(data) {
 }
 
 function Contact() {
+  const recaptcha = useRecaptcha()
   const [status, setStatus] = useState('idle')
   const [form, setForm] = useState({
     nombre: '',
@@ -28,7 +82,7 @@ function Contact() {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    const recaptchaResponse = event.target['g-recaptcha-response']?.value
+    const recaptchaResponse = recaptcha.getResponse()
     if (!recaptchaResponse) {
       setStatus('recaptcha')
       return
@@ -56,8 +110,10 @@ function Contact() {
         mensaje: '',
         privacidad: false,
       })
+      recaptcha.reset()
     } catch (error) {
       setStatus('error')
+      recaptcha.reset()
     }
   }
 
@@ -195,7 +251,7 @@ function Contact() {
             He leído y acepto la política de privacidad.
           </label>
 
-          <div data-netlify-recaptcha="true" />
+          <div ref={recaptcha.containerRef} />
 
           {status === 'recaptcha' && (
             <p className="text-sm text-red-600">
