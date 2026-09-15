@@ -12,6 +12,7 @@ import clinica03 from '../assets/clinica_03.png'
 import clinica04 from '../assets/clinica_04.png'
 import clinica05 from '../assets/clinica_05.png'
 import quiropodiaIcon from '../assets/icons/quiropodia.png'
+import ctaBackground from '../assets/cta-background.jpg'
 import analisisMarchaIcon from '../assets/icons/analisis_marcha.png'
 import plantillaIcon from '../assets/icons/plantilla.png'
 import podologiaFisicaIcon from '../assets/icons/podologia_fisica.png'
@@ -189,12 +190,16 @@ function Home() {
         </div>
       </section>
 
-      <section className="border-t border-neutral-200 bg-neutral-900">
-        <div className="mx-auto max-w-2xl px-4 py-12 text-center sm:px-6 sm:py-16 md:py-20">
-          <h2 className="text-2xl font-semibold tracking-tight text-white md:text-3xl">
+      <section
+        className="relative overflow-hidden border-t border-neutral-200 bg-cover bg-center bg-fixed"
+        style={{ backgroundImage: `url(${ctaBackground})` }}
+      >
+        <div className="absolute inset-0 bg-neutral-900/30" />
+        <div className="relative mx-auto max-w-2xl px-4 py-12 text-center sm:px-6 sm:py-16 md:py-20">
+          <h2 className="text-2xl font-semibold tracking-tight text-wood-200 md:text-3xl">
             ¿Listo para cuidar tus pies?
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-neutral-300 md:text-lg">
+          <p className="mt-4 text-base leading-relaxed text-neutral-200 md:text-lg">
             Pide tu cita previa y da el primer paso hacia tu bienestar.
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:mt-8 sm:gap-4">
@@ -206,7 +211,7 @@ function Home() {
             </Link>
             <a
               href="tel:+34680927023"
-              className="text-sm font-medium text-neutral-300 transition-colors hover:text-white"
+              className="text-sm font-medium text-neutral-200 transition-colors hover:text-white"
             >
               680 927 023
             </a>
