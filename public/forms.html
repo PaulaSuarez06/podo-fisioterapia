@@ -1,0 +1,17 @@
+<!--
+  Formulario estático oculto solo para que Netlify Forms lo detecte durante el build.
+  El formulario real que ve el usuario es el de src/pages/Contact.jsx, con los mismos campos.
+-->
+<form name="contacto" data-netlify="true" hidden>
+  <input type="text" name="nombre" />
+  <input type="text" name="apellido" />
+  <input type="email" name="email" />
+  <input type="tel" name="telefono" />
+  <select name="servicio">
+    <option>Podología</option>
+    <option>Fisioterapia</option>
+    <option>Información</option>
+  </select>
+  <textarea name="mensaje"></textarea>
+  <input type="checkbox" name="privacidad" />
+</form>
