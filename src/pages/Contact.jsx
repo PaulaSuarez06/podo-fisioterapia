@@ -27,13 +27,24 @@ function Contact() {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
+
+    const recaptchaResponse = event.target['g-recaptcha-response']?.value
+    if (!recaptchaResponse) {
+      setStatus('recaptcha')
+      return
+    }
+
     setStatus('sending')
 
     try {
       await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encodeFormData({ 'form-name': 'contacto', ...form }),
+        body: encodeFormData({
+          'form-name': 'contacto',
+          ...form,
+          'g-recaptcha-response': recaptchaResponse,
+        }),
       })
       setStatus('success')
       setForm({
@@ -69,6 +80,7 @@ function Contact() {
           name="contacto"
           method="POST"
           data-netlify="true"
+          data-netlify-recaptcha="true"
           onSubmit={handleSubmit}
           className="mt-8 space-y-5"
         >
@@ -182,6 +194,15 @@ function Contact() {
             />
             He leído y acepto la política de privacidad.
           </label>
+
+          <div data-netlify-recaptcha="true" />
+
+          {status === 'recaptcha' && (
+            <p className="text-sm text-red-600">
+              Por favor, verifica que no eres un robot antes de enviar el
+              formulario.
+            </p>
+          )}
 
           {status === 'error' && (
             <p className="text-sm text-red-600">
