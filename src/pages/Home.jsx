@@ -4,13 +4,13 @@ import { MapPin } from 'lucide-react'
 import Carousel from '../components/Carousel'
 import Reveal from '../components/Reveal'
 import ReviewsCarousel from '../components/ReviewsCarousel'
-import podologo from '../assets/podologo_01.png'
-import podologo2 from '../assets/podologo_02.png'
-import clinica01 from '../assets/clinica_01.png'
-import clinica02 from '../assets/clinica_02.png'
-import clinica03 from '../assets/clinica_03.png'
-import clinica04 from '../assets/clinica_04.png'
-import clinica05 from '../assets/clinica_05.png'
+import podologo from '../assets/podologo_01.jpg'
+import podologo2 from '../assets/podologo_02.jpg'
+import clinica01 from '../assets/clinica_01.jpg'
+import clinica02 from '../assets/clinica_02.jpg'
+import clinica03 from '../assets/clinica_03.jpg'
+import clinica04 from '../assets/clinica_04.jpg'
+import clinica05 from '../assets/clinica_05.jpg'
 import quiropodiaIcon from '../assets/icons/quiropodia.png'
 import ctaBackground from '../assets/cta-background.jpg'
 import analisisMarchaIcon from '../assets/icons/analisis_marcha.png'
@@ -126,7 +126,7 @@ function Home() {
               Pasión por el cuidado integral: Rodrigo Jiménez Martín, tu
               experto en podología y fisioterapia
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-neutral-600 sm:mt-6 md:text-lg">
+            <p className="mt-4 text-justify text-base leading-relaxed text-neutral-600 sm:mt-6 md:text-lg">
               ¡Bienvenidos! Soy Rodrigo Jiménez Martín, un profesional
               capacitado para brindarte una atención integral en el campo
               de la podología y la fisioterapia. Con amplias competencias
@@ -152,7 +152,7 @@ function Home() {
             Confía en nuestros expertos para el cuidado integral de tus
             pies
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-neutral-600 sm:mt-6 md:text-lg">
+          <p className="mt-4 text-justify text-base leading-relaxed text-neutral-600 sm:mt-6 md:text-lg">
             En nuestro centro de podología y fisioterapia ofrecemos una
             amplia gama de servicios: desde la quiropodología y la
             ortopodología hasta el análisis de la marcha con valoración
