@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Footprints, Activity, Layers, Hand, Syringe, MapPin } from 'lucide-react'
+import { MapPin } from 'lucide-react'
 import Carousel from '../components/Carousel'
 import Reveal from '../components/Reveal'
 import ReviewsCarousel from '../components/ReviewsCarousel'
@@ -11,6 +11,11 @@ import clinica02 from '../assets/clinica_02.png'
 import clinica03 from '../assets/clinica_03.png'
 import clinica04 from '../assets/clinica_04.png'
 import clinica05 from '../assets/clinica_05.png'
+import quiropodiaIcon from '../assets/icons/quiropodia.png'
+import analisisMarchaIcon from '../assets/icons/analisis_marcha.png'
+import plantillaIcon from '../assets/icons/plantilla.png'
+import podologiaFisicaIcon from '../assets/icons/podologia_fisica.png'
+import agujaPieIcon from '../assets/icons/aguja_pie.png'
 
 const clinicImages = [
   { src: podologo2, alt: 'Rodrigo Jiménez Martín en consulta' },
@@ -26,27 +31,27 @@ const services = [
     title: 'Quiropodología',
     subtitle: '(Consultas rutinarias de podología)',
     description: 'Uñas encarnadas, callos.',
-    icon: Footprints,
+    iconImage: quiropodiaIcon,
   },
   {
     title: 'Análisis de la marcha',
     description: 'Valoración muscular.',
-    icon: Activity,
+    iconImage: analisisMarchaIcon,
   },
   {
     title: 'Ortopodología',
     description: 'Plantillas.',
-    icon: Layers,
+    iconImage: plantillaIcon,
   },
   {
     title: 'Podología física',
     description: 'Tratamientos manuales en el pie.',
-    icon: Hand,
+    iconImage: podologiaFisicaIcon,
   },
   {
     title: 'Tratamientos invasivos en el pie',
     description: 'Pie diabético.',
-    icon: Syringe,
+    iconImage: agujaPieIcon,
   },
 ]
 
@@ -134,7 +139,7 @@ function Home() {
             <img
               src={podologo}
               alt="Rodrigo Jiménez Martín"
-              className="aspect-square w-full rounded-3xl object-cover shadow-sm sm:aspect-4/5"
+              className="signature-corner aspect-square w-full object-cover shadow-sm sm:aspect-4/5"
             />
           </div>
         </div>
@@ -160,9 +165,10 @@ function Home() {
           {services.map((service, index) => (
             <Reveal key={service.title} delay={index * 80}>
               <div className="flex flex-col gap-3 py-6 sm:flex-row sm:items-start sm:gap-8 sm:py-8">
-                <service.icon
-                  className="h-7 w-7 shrink-0 text-wood-400 sm:mt-1"
-                  strokeWidth={1.5}
+                <img
+                  src={service.iconImage}
+                  alt=""
+                  className="h-16 w-28 shrink-0 object-contain object-left sm:mt-1"
                 />
                 <div>
                   <h3 className="text-lg font-semibold tracking-tight text-neutral-900 sm:text-xl md:text-2xl">
@@ -217,7 +223,7 @@ function Home() {
                 C. de Labradores, 33, 47004 Valladolid
               </span>
             </div>
-            <div className="mt-4 h-64 overflow-hidden rounded-3xl shadow-sm sm:h-full sm:min-h-64">
+            <div className="signature-corner mt-4 h-64 overflow-hidden shadow-sm sm:h-full sm:min-h-64">
               <iframe
                 title="Ubicación de la clínica en el mapa"
                 src="https://www.google.com/maps?q=41.6462111,-4.720613&z=16&output=embed"

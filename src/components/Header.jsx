@@ -14,7 +14,7 @@ function Header() {
   }, [])
 
   const linkClass = ({ isActive }) =>
-    `relative py-1 text-sm tracking-wide text-neutral-600 transition-colors after:absolute after:-bottom-1 after:left-0 after:h-px after:bg-wood-400 after:transition-all hover:text-neutral-900 ${
+    `relative py-1 text-sm tracking-wide text-neutral-600 transition-colors after:absolute after:-bottom-1 after:left-0 after:h-[3px] after:rounded-full after:bg-wood-400 after:transition-all after:duration-300 after:[border-top-left-radius:0] hover:text-neutral-900 ${
       isActive
         ? 'text-neutral-900 after:w-full'
         : 'after:w-0 hover:after:w-full'

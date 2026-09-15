@@ -15,3 +15,7 @@
 body {
   margin: 0;
 }
+
+.signature-corner {
+  border-radius: 2.5rem 2.5rem 2.5rem 0.375rem;
+}
