@@ -16,7 +16,7 @@ function ReviewsCarousel({ reviews, interval = 6000 }) {
   const review = reviews[index]
 
   return (
-    <div className="flex h-full flex-col justify-between rounded-3xl bg-neutral-50 p-8 md:p-10">
+    <div className="flex h-full flex-col justify-between rounded-3xl bg-neutral-50 p-6 sm:p-8 md:p-10">
       <div>
         <div className="flex gap-1 text-wood-400">
           {Array.from({ length: 5 }).map((_, i) => (

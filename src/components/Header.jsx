@@ -34,7 +34,7 @@ function Header() {
       }`}
     >
       <div
-        className={`mx-auto flex max-w-5xl items-center justify-between px-6 transition-all duration-300 ${
+        className={`mx-auto flex max-w-5xl items-center justify-between px-4 transition-all duration-300 sm:px-6 ${
           isScrolled ? 'py-3' : 'py-5'
         }`}
       >
@@ -77,7 +77,7 @@ function Header() {
           onClick={() => setIsOpen((open) => !open)}
           aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
           aria-expanded={isOpen}
-          className="flex h-8 w-8 flex-col items-center justify-center gap-1.5 md:hidden"
+          className="-mr-2 flex h-11 w-11 flex-col items-center justify-center gap-1.5 md:hidden"
         >
           <span
             className={`h-px w-6 bg-neutral-900 transition-transform ${
@@ -93,7 +93,7 @@ function Header() {
       </div>
 
       {isOpen && (
-        <nav className="flex flex-col gap-5 border-t border-neutral-200 px-6 py-6 md:hidden">
+        <nav className="flex flex-col gap-5 border-t border-neutral-200 px-4 py-6 sm:px-6 md:hidden">
           <NavLink to="/" end className={mobileLinkClass} onClick={() => setIsOpen(false)}>
             Inicio
           </NavLink>

@@ -2,7 +2,7 @@ function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-gray-200 px-8 py-6 text-center text-gray-500">
+    <footer className="border-t border-gray-200 px-4 py-6 text-center text-sm text-gray-500 sm:px-8 sm:text-base">
       <p>© {year} Podo Fisioterapia. Todos los derechos reservados.</p>
       <p className="mt-2">
         Developed by{' '}

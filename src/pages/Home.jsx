@@ -82,17 +82,17 @@ function Home() {
 
   return (
     <>
-      <section className="mx-auto grid max-w-5xl items-center gap-10 px-6 py-12 md:grid-cols-2 md:gap-16 md:py-20">
-        <div className="order-2 md:order-1">
-          <h1 className="text-4xl font-semibold leading-tight tracking-tight text-neutral-900 md:text-5xl">
+      <section className="mx-auto grid max-w-5xl items-center gap-8 px-4 py-10 sm:px-6 sm:py-12 md:grid-cols-2 md:gap-16 md:py-20">
+        <div className="order-1 md:order-1">
+          <h1 className="text-3xl font-semibold leading-tight tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
             Paso a paso hacia el bienestar
           </h1>
-          <p className="mt-6 text-base leading-relaxed text-neutral-600 md:text-lg">
+          <p className="mt-4 text-base leading-relaxed text-neutral-600 sm:mt-6 md:text-lg">
             Descubre nuestra atención integral en podología y fisioterapia y
             camina con confianza, cuidamos de tus pies: tu salud es nuestra
             prioridad.
           </p>
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="mt-6 flex flex-wrap gap-3 sm:mt-8 sm:gap-4">
             <Link
               to="/contacto"
               className="rounded-full bg-wood-400 px-6 py-3 text-sm font-medium text-neutral-900 transition-colors hover:bg-wood-300"
@@ -108,19 +108,19 @@ function Home() {
           </div>
         </div>
 
-        <div className="order-1 md:order-2">
+        <div className="order-2 md:order-2">
           <Carousel images={clinicImages} />
         </div>
       </section>
 
       <section className="border-t border-neutral-200 bg-neutral-50">
-        <div className="mx-auto grid max-w-5xl items-center gap-10 px-6 py-16 md:grid-cols-2 md:gap-16 md:py-20">
-          <div className="order-2 md:order-1">
+        <div className="mx-auto grid max-w-5xl items-center gap-8 px-4 py-12 sm:gap-10 sm:px-6 sm:py-16 md:grid-cols-2 md:gap-16 md:py-20">
+          <div className="order-1 md:order-1">
             <h2 className="text-2xl font-semibold tracking-tight text-neutral-900 md:text-3xl">
               Pasión por el cuidado integral: Rodrigo Jiménez Martín, tu
               experto en podología y fisioterapia
             </h2>
-            <p className="mt-6 text-base leading-relaxed text-neutral-600 md:text-lg">
+            <p className="mt-4 text-base leading-relaxed text-neutral-600 sm:mt-6 md:text-lg">
               ¡Bienvenidos! Soy Rodrigo Jiménez Martín, un profesional
               capacitado para brindarte una atención integral en el campo
               de la podología y la fisioterapia. Con amplias competencias
@@ -130,23 +130,23 @@ function Home() {
             </p>
           </div>
 
-          <div className="order-1 md:order-2">
+          <div className="order-2 md:order-2">
             <img
               src={podologo}
               alt="Rodrigo Jiménez Martín"
-              className="aspect-4/5 w-full rounded-3xl object-cover shadow-sm"
+              className="aspect-square w-full rounded-3xl object-cover shadow-sm sm:aspect-4/5"
             />
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 py-16 md:py-20">
+      <section className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16 md:py-20">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-2xl font-semibold tracking-tight text-neutral-900 md:text-3xl">
             Confía en nuestros expertos para el cuidado integral de tus
             pies
           </h2>
-          <p className="mt-6 text-base leading-relaxed text-neutral-600 md:text-lg">
+          <p className="mt-4 text-base leading-relaxed text-neutral-600 sm:mt-6 md:text-lg">
             En nuestro centro de podología y fisioterapia ofrecemos una
             amplia gama de servicios: desde la quiropodología y la
             ortopodología hasta el análisis de la marcha con valoración
@@ -156,16 +156,16 @@ function Home() {
           </p>
         </div>
 
-        <div className="mx-auto mt-16 max-w-3xl divide-y divide-neutral-200 border-t border-neutral-200">
+        <div className="mx-auto mt-10 max-w-3xl divide-y divide-neutral-200 border-t border-neutral-200 sm:mt-16">
           {services.map((service, index) => (
             <Reveal key={service.title} delay={index * 80}>
-              <div className="flex flex-col gap-4 py-8 md:flex-row md:items-start md:gap-8">
+              <div className="flex flex-col gap-3 py-6 sm:flex-row sm:items-start sm:gap-8 sm:py-8">
                 <service.icon
-                  className="h-7 w-7 shrink-0 text-wood-400 md:mt-1"
+                  className="h-7 w-7 shrink-0 text-wood-400 sm:mt-1"
                   strokeWidth={1.5}
                 />
                 <div>
-                  <h3 className="text-xl font-semibold tracking-tight text-neutral-900 md:text-2xl">
+                  <h3 className="text-lg font-semibold tracking-tight text-neutral-900 sm:text-xl md:text-2xl">
                     {service.title}
                   </h3>
                   {service.subtitle && (
@@ -184,14 +184,14 @@ function Home() {
       </section>
 
       <section className="border-t border-neutral-200 bg-neutral-900">
-        <div className="mx-auto max-w-2xl px-6 py-16 text-center md:py-20">
+        <div className="mx-auto max-w-2xl px-4 py-12 text-center sm:px-6 sm:py-16 md:py-20">
           <h2 className="text-2xl font-semibold tracking-tight text-white md:text-3xl">
             ¿Listo para cuidar tus pies?
           </h2>
           <p className="mt-4 text-base leading-relaxed text-neutral-300 md:text-lg">
             Pide tu cita previa y da el primer paso hacia tu bienestar.
           </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:mt-8 sm:gap-4">
             <Link
               to="/contacto"
               className="rounded-full bg-wood-400 px-6 py-3 text-sm font-medium text-neutral-900 transition-colors hover:bg-wood-300"
@@ -209,19 +209,19 @@ function Home() {
       </section>
 
       <section className="border-t border-neutral-200 bg-neutral-50">
-        <div className="mx-auto grid max-w-5xl items-stretch gap-10 px-6 py-16 md:grid-cols-2 md:gap-16 md:py-20">
+        <div className="mx-auto grid max-w-5xl items-stretch gap-8 px-4 py-12 sm:gap-10 sm:px-6 sm:py-16 md:grid-cols-2 md:gap-16 md:py-20">
           <div>
             <div className="flex items-center gap-2 text-neutral-900">
-              <MapPin className="h-5 w-5 text-wood-400" strokeWidth={1.5} />
+              <MapPin className="h-5 w-5 shrink-0 text-wood-400" strokeWidth={1.5} />
               <span className="text-sm font-medium">
                 C. de Labradores, 33, 47004 Valladolid
               </span>
             </div>
-            <div className="mt-4 h-full min-h-64 overflow-hidden rounded-3xl shadow-sm">
+            <div className="mt-4 h-64 overflow-hidden rounded-3xl shadow-sm sm:h-full sm:min-h-64">
               <iframe
                 title="Ubicación de la clínica en el mapa"
                 src="https://www.google.com/maps?q=41.6462111,-4.720613&z=16&output=embed"
-                className="h-full w-full min-h-64 border-0"
+                className="h-full w-full border-0"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />

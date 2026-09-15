@@ -14,7 +14,7 @@ function Carousel({ images, interval = 4000 }) {
 
   return (
     <div className="relative">
-      <div className="aspect-4/5 w-full overflow-hidden rounded-3xl shadow-sm">
+      <div className="aspect-square w-full overflow-hidden rounded-3xl shadow-sm sm:aspect-4/5">
         <img
           src={images[index].src}
           alt={images[index].alt}
