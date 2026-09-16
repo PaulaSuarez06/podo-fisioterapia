@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useCookieConsent } from '../lib/useCookieConsent'
+import SEO from '../components/SEO'
 
 const services = ['Podología', 'Fisioterapia', 'Información']
 const RECAPTCHA_SITE_KEY = '6LdnkKEqAAAAAPvyqoRAmjXxvE6evlb5z-5Ol90Y'
@@ -126,6 +127,12 @@ function Contact() {
   }
 
   return (
+    <>
+    <SEO
+      title="Contacto"
+      description="Pide tu cita previa en Podología & Fisioterapia Rodrigo Jiménez, en C. de Labradores 33, Valladolid. Formulario de contacto, teléfono y ubicación."
+      path="/contacto"
+    />
     <section className="mx-auto max-w-2xl px-4 py-12 sm:px-6 sm:py-16">
       <h1 className="text-3xl font-semibold tracking-tight text-neutral-900 md:text-4xl">
         Contacto
@@ -300,6 +307,7 @@ function Contact() {
         </form>
       )}
     </section>
+    </>
   )
 }
 

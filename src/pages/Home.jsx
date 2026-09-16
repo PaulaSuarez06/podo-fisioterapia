@@ -6,6 +6,7 @@ import Reveal from '../components/Reveal'
 import ScrollLine from '../components/ScrollLine'
 import ReviewsCarousel from '../components/ReviewsCarousel'
 import { useCookieConsent } from '../lib/useCookieConsent'
+import SEO from '../components/SEO'
 import podologo from '../assets/podologo_01.jpg'
 import podologo2 from '../assets/podologo_02.jpg'
 import clinica01 from '../assets/clinica_01.jpg'
@@ -91,6 +92,11 @@ function Home() {
 
   return (
     <>
+      <SEO
+        title="Inicio"
+        description="Podología y fisioterapia en Valladolid. Quiropodología, análisis de la marcha, ortopodología, podología física y tratamientos invasivos en el pie con Rodrigo Jiménez Martín."
+        path="/"
+      />
       <div className="bg-linear-to-b from-white via-wood-100 to-white">
       <section>
         <div className="mx-auto grid max-w-5xl items-center gap-8 px-4 py-10 sm:px-6 sm:py-12 md:grid-cols-2 md:gap-16 md:py-20">

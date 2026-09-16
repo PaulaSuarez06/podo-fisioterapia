@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /politica-de-cookies
+
+Sitemap: https://podofisioterapia.netlify.app/sitemap.xml

@@ -17,12 +17,12 @@ function CookieBanner() {
 
   return (
     <>
-      <div className="fixed bottom-4 left-4 right-4 z-60 max-w-sm rounded-3xl border border-neutral-200 bg-white p-4 shadow-lg sm:right-auto">
+      <div className="fixed inset-x-0 bottom-0 z-60 max-h-[85vh] overflow-y-auto border-t border-neutral-200 bg-white p-4 shadow-lg sm:bottom-4 sm:left-4 sm:right-auto sm:max-w-sm sm:rounded-3xl sm:border">
         <div className="flex items-start gap-3">
-          <div className="signature-corner flex h-12 w-12 shrink-0 items-center justify-center bg-wood-100 text-2xl">
+          <div className="signature-corner flex h-10 w-10 shrink-0 items-center justify-center bg-wood-100 text-xl sm:h-12 sm:w-12 sm:text-2xl">
             🍪
           </div>
-          <div>
+          <div className="min-w-0">
             <p className="text-sm leading-relaxed text-neutral-600">
               Usamos cookies propias y de terceros (Google reCAPTCHA y
               Google Maps) para el correcto funcionamiento del sitio.
