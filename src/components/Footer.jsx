@@ -1,9 +1,19 @@
+import { Link } from 'react-router-dom'
+
 function Footer() {
   const year = new Date().getFullYear()
 
   return (
     <footer className="border-t border-gray-200 px-4 py-6 text-center text-sm text-gray-500 sm:px-8 sm:text-base">
       <p>© {year} Podo Fisioterapia. Todos los derechos reservados.</p>
+      <p className="mt-2">
+        <Link
+          to="/politica-de-cookies"
+          className="underline decoration-gray-300 underline-offset-2 transition-colors hover:text-gray-700"
+        >
+          Política de cookies
+        </Link>
+      </p>
       <p className="mt-2">
         Developed by{' '}
         <a
@@ -20,4 +30,3 @@ function Footer() {
 }
 
 export default Footer
- 

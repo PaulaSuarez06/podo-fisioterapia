@@ -1,13 +1,16 @@
 import { useEffect, useRef, useState } from 'react'
+import { useCookieConsent } from '../lib/useCookieConsent'
 
 const services = ['Podología', 'Fisioterapia', 'Información']
 const RECAPTCHA_SITE_KEY = '6LdnkKEqAAAAAPvyqoRAmjXxvE6evlb5z-5Ol90Y'
 
-function useRecaptcha() {
+function useRecaptcha(enabled) {
   const containerRef = useRef(null)
   const widgetIdRef = useRef(null)
 
   useEffect(() => {
+    if (!enabled) return
+
     let cancelled = false
 
     function renderWidget() {
@@ -37,7 +40,7 @@ function useRecaptcha() {
     return () => {
       cancelled = true
     }
-  }, [])
+  }, [enabled])
 
   const getResponse = () => {
     if (widgetIdRef.current === null || !window.grecaptcha) return ''
@@ -60,7 +63,9 @@ function encodeFormData(data) {
 }
 
 function Contact() {
-  const recaptcha = useRecaptcha()
+  const consent = useCookieConsent()
+  const recaptchaEnabled = consent?.functional === true
+  const recaptcha = useRecaptcha(recaptchaEnabled)
   const [status, setStatus] = useState('idle')
   const [form, setForm] = useState({
     nombre: '',
@@ -79,6 +84,11 @@ function Contact() {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
+
+    if (!recaptchaEnabled) {
+      setStatus('cookies')
+      return
+    }
 
     const recaptchaResponse = recaptcha.getResponse()
     if (!recaptchaResponse) {
@@ -249,7 +259,22 @@ function Contact() {
             He leído y acepto la política de privacidad.
           </label>
 
-          <div ref={recaptcha.containerRef} />
+          {recaptchaEnabled ? (
+            <div ref={recaptcha.containerRef} />
+          ) : (
+            <p className="text-sm text-neutral-500">
+              Para enviar el formulario necesitamos cargar Google
+              reCAPTCHA, que requiere aceptar las cookies funcionales.
+              Puedes cambiar tu preferencia desde el aviso de cookies.
+            </p>
+          )}
+
+          {status === 'cookies' && (
+            <p className="text-sm text-red-600">
+              Debes aceptar las cookies funcionales para poder enviar el
+              formulario.
+            </p>
+          )}
 
           {status === 'recaptcha' && (
             <p className="text-sm text-red-600">

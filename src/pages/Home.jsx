@@ -4,6 +4,7 @@ import { MapPin } from 'lucide-react'
 import Carousel from '../components/Carousel'
 import Reveal from '../components/Reveal'
 import ReviewsCarousel from '../components/ReviewsCarousel'
+import { useCookieConsent } from '../lib/useCookieConsent'
 import podologo from '../assets/podologo_01.jpg'
 import podologo2 from '../assets/podologo_02.jpg'
 import clinica01 from '../assets/clinica_01.jpg'
@@ -75,6 +76,7 @@ const fallbackReviews = [
 ]
 
 function Home() {
+  const consent = useCookieConsent()
   const [reviews, setReviews] = useState(fallbackReviews)
 
   useEffect(() => {
@@ -191,7 +193,7 @@ function Home() {
       </section>
 
       <section
-        className="relative overflow-hidden border-t border-neutral-200 bg-cover bg-center bg-fixed"
+        className="relative overflow-hidden border-t border-neutral-200 bg-cover bg-center bg-scroll md:bg-fixed"
         style={{ backgroundImage: `url(${ctaBackground})` }}
       >
         <div className="absolute inset-0 bg-neutral-900/30" />
@@ -229,13 +231,30 @@ function Home() {
               </span>
             </div>
             <div className="signature-corner mt-4 h-64 overflow-hidden shadow-sm sm:h-full sm:min-h-64">
-              <iframe
-                title="Ubicación de la clínica en el mapa"
-                src="https://www.google.com/maps?q=41.6462111,-4.720613&z=16&output=embed"
-                className="h-full w-full border-0"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+              {consent?.functional ? (
+                <iframe
+                  title="Ubicación de la clínica en el mapa"
+                  src="https://www.google.com/maps?q=41.6462111,-4.720613&z=16&output=embed"
+                  className="h-full w-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              ) : (
+                <div className="flex h-full flex-col items-center justify-center gap-3 bg-neutral-100 p-6 text-center">
+                  <p className="text-sm text-neutral-600">
+                    Acepta las cookies funcionales para ver el mapa
+                    interactivo.
+                  </p>
+                  <a
+                    href="https://www.google.com/maps?q=41.6462111,-4.720613"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full border border-neutral-300 px-5 py-2 text-sm font-medium text-neutral-700 transition-colors hover:border-neutral-400"
+                  >
+                    Ver en Google Maps
+                  </a>
+                </div>
+              )}
             </div>
           </div>
 
