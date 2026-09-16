@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { MapPin } from 'lucide-react'
 import Carousel from '../components/Carousel'
 import Reveal from '../components/Reveal'
+import ScrollLine from '../components/ScrollLine'
 import ReviewsCarousel from '../components/ReviewsCarousel'
 import { useCookieConsent } from '../lib/useCookieConsent'
 import podologo from '../assets/podologo_01.jpg'
@@ -90,7 +91,9 @@ function Home() {
 
   return (
     <>
-      <section className="mx-auto grid max-w-5xl items-center gap-8 px-4 py-10 sm:px-6 sm:py-12 md:grid-cols-2 md:gap-16 md:py-20">
+      <div className="bg-linear-to-b from-white via-wood-100 to-white">
+      <section>
+        <div className="mx-auto grid max-w-5xl items-center gap-8 px-4 py-10 sm:px-6 sm:py-12 md:grid-cols-2 md:gap-16 md:py-20">
         <div className="order-1 md:order-1">
           <h1 className="text-3xl font-semibold leading-tight tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
             Paso a paso hacia el bienestar
@@ -119,9 +122,12 @@ function Home() {
         <div className="order-2 md:order-2">
           <Carousel images={clinicImages} />
         </div>
+        </div>
       </section>
 
-      <section className="border-t border-neutral-200 bg-neutral-50">
+      <ScrollLine />
+
+      <section>
         <div className="mx-auto grid max-w-5xl items-center gap-8 px-4 py-12 sm:gap-10 sm:px-6 sm:py-16 md:grid-cols-2 md:gap-16 md:py-20">
           <div className="order-1 md:order-1">
             <h2 className="text-2xl font-semibold tracking-tight text-neutral-900 md:text-3xl">
@@ -147,6 +153,8 @@ function Home() {
           </div>
         </div>
       </section>
+
+      <ScrollLine />
 
       <section className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16 md:py-20">
         <div className="mx-auto max-w-2xl text-center">
@@ -191,6 +199,7 @@ function Home() {
           ))}
         </div>
       </section>
+      </div>
 
       <section
         className="relative overflow-hidden border-t border-neutral-200 bg-cover bg-center bg-scroll md:bg-fixed"
