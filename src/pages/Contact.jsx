@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Phone, MapPin, Clock } from 'lucide-react'
 import { useCookieConsent } from '../lib/useCookieConsent'
 import SEO from '../components/SEO'
 
@@ -140,6 +141,24 @@ function Contact() {
       <p className="mt-4 text-base leading-relaxed text-neutral-600 md:text-lg">
         Ponte en contacto con nosotros y pide tu cita previa.
       </p>
+
+      <div className="mt-8 flex flex-col gap-3 rounded-2xl bg-neutral-50 p-6 text-sm text-neutral-700">
+        <a
+          href="tel:+34680927023"
+          className="flex items-center gap-2 transition-colors hover:text-neutral-900"
+        >
+          <Phone className="h-4 w-4 shrink-0 text-wood-400" strokeWidth={1.5} />
+          680 927 023
+        </a>
+        <span className="flex items-center gap-2">
+          <MapPin className="h-4 w-4 shrink-0 text-wood-400" strokeWidth={1.5} />
+          C. de Labradores, 33, Valladolid
+        </span>
+        <span className="flex items-center gap-2">
+          <Clock className="h-4 w-4 shrink-0 text-wood-400" strokeWidth={1.5} />
+          L-V, 9:00–14:00 y 16:00–20:00
+        </span>
+      </div>
 
       {status === 'success' ? (
         <p className="mt-8 rounded-2xl bg-neutral-50 p-6 text-neutral-700">

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import logo from '../assets/logo.jpg'
+import logo from '../assets/logo-rj.png'
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -52,8 +52,8 @@ function Header() {
           <NavLink to="/" end className={linkClass}>
             Inicio
           </NavLink>
-          <NavLink to="/sobre-nosotros" className={linkClass}>
-            Servicio
+          <NavLink to="/servicios" className={linkClass}>
+            Servicios
           </NavLink>
           <NavLink to="/contacto" className={linkClass}>
             Contacto
@@ -98,11 +98,11 @@ function Header() {
             Inicio
           </NavLink>
           <NavLink
-            to="/sobre-nosotros"
+            to="/servicios"
             className={mobileLinkClass}
             onClick={() => setIsOpen(false)}
           >
-            Servicio
+            Servicios
           </NavLink>
           <NavLink
             to="/contacto"

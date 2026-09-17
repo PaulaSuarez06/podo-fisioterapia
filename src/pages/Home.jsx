@@ -1,25 +1,25 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { MapPin } from 'lucide-react'
+import { MapPin, Clock } from 'lucide-react'
 import Carousel from '../components/Carousel'
 import Reveal from '../components/Reveal'
 import ScrollLine from '../components/ScrollLine'
 import ReviewsCarousel from '../components/ReviewsCarousel'
 import { useCookieConsent } from '../lib/useCookieConsent'
 import SEO from '../components/SEO'
-import podologo from '../assets/podologo_01.jpg'
-import podologo2 from '../assets/podologo_02.jpg'
-import clinica01 from '../assets/clinica_01.jpg'
-import clinica02 from '../assets/clinica_02.jpg'
-import clinica03 from '../assets/clinica_03.jpg'
-import clinica04 from '../assets/clinica_04.jpg'
-import clinica05 from '../assets/clinica_05.jpg'
+import podologo from '../assets/equipo/rodrigo-consulta.jpg'
+import podologo2 from '../assets/equipo/rodrigo-retrato.jpg'
+import clinica01 from '../assets/clinica/box-01.jpg'
+import clinica02 from '../assets/clinica/sala-fisioterapia.jpg'
+import clinica03 from '../assets/clinica/fachada.jpg'
+import clinica04 from '../assets/clinica/recepcion.jpg'
+import clinica05 from '../assets/clinica/box-02.jpg'
 import quiropodiaIcon from '../assets/icons/quiropodia.png'
 import ctaBackground from '../assets/cta-background.jpg'
-import analisisMarchaIcon from '../assets/icons/analisis_marcha.png'
+import analisisMarchaIcon from '../assets/icons/analisis-marcha.png'
 import plantillaIcon from '../assets/icons/plantilla.png'
-import podologiaFisicaIcon from '../assets/icons/podologia_fisica.png'
-import agujaPieIcon from '../assets/icons/aguja_pie.png'
+import podologiaFisicaIcon from '../assets/icons/podologia-fisica.png'
+import agujaPieIcon from '../assets/icons/aguja-pie.png'
 
 const clinicImages = [
   { src: podologo2, alt: 'Rodrigo Jiménez Martín en consulta' },
@@ -117,7 +117,7 @@ function Home() {
               Pedir cita previa
             </Link>
             <Link
-              to="/sobre-nosotros"
+              to="/servicios"
               className="rounded-full border border-neutral-300 px-6 py-3 text-sm font-medium text-neutral-700 transition-colors hover:border-neutral-400 hover:text-neutral-900"
             >
               Conoce nuestros servicios
@@ -243,6 +243,12 @@ function Home() {
               <MapPin className="h-5 w-5 shrink-0 text-wood-400" strokeWidth={1.5} />
               <span className="text-sm font-medium">
                 C. de Labradores, 33, 47004 Valladolid
+              </span>
+            </div>
+            <div className="mt-2 flex items-center gap-2 text-neutral-900">
+              <Clock className="h-5 w-5 shrink-0 text-wood-400" strokeWidth={1.5} />
+              <span className="text-sm font-medium">
+                Lunes a viernes, 9:00–14:00 y 16:00–20:00
               </span>
             </div>
             <div className="signature-corner mt-4 h-64 overflow-hidden shadow-sm sm:h-full sm:min-h-64">
