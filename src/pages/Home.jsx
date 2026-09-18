@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { MapPin, Clock } from 'lucide-react'
-import Carousel from '../components/Carousel'
 import Reveal from '../components/Reveal'
 import ScrollLine from '../components/ScrollLine'
 import ReviewsCarousel from '../components/ReviewsCarousel'
@@ -15,7 +14,7 @@ import clinica03 from '../assets/clinica/fachada.jpg'
 import clinica04 from '../assets/clinica/recepcion.jpg'
 import clinica05 from '../assets/clinica/box-02.jpg'
 import quiropodiaIcon from '../assets/icons/quiropodia.png'
-import ctaBackground from '../assets/cta-background.jpg'
+import ctaBackground from '../assets/abstract-blur-gym-fitness.jpg'
 import analisisMarchaIcon from '../assets/icons/analisis-marcha.png'
 import plantillaIcon from '../assets/icons/plantilla.png'
 import podologiaFisicaIcon from '../assets/icons/podologia-fisica.png'
@@ -97,88 +96,80 @@ function Home() {
         description="Podología y fisioterapia en Valladolid. Quiropodología, análisis de la marcha, ortopodología, podología física y tratamientos invasivos en el pie con Rodrigo Jiménez Martín."
         path="/"
       />
-      <div className="bg-linear-to-b from-white via-wood-100 to-white">
-      <section>
-        <div className="mx-auto grid max-w-5xl items-center gap-8 px-4 py-10 sm:px-6 sm:py-12 md:grid-cols-2 md:gap-16 md:py-20">
-        <div className="order-1 md:order-1">
-          <h1 className="text-3xl font-semibold leading-tight tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
-            Paso a paso hacia el bienestar
-          </h1>
-          <p className="mt-4 text-base leading-relaxed text-neutral-600 sm:mt-6 md:text-lg">
-            Descubre nuestra atención integral en podología y fisioterapia y
-            camina con confianza, cuidamos de tus pies: tu salud es nuestra
-            prioridad.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-3 sm:mt-8 sm:gap-4">
-            <Link
-              to="/contacto"
-              className="rounded-full bg-wood-400 px-6 py-3 text-sm font-medium text-neutral-900 transition-colors hover:bg-wood-300"
-            >
-              Pedir cita previa
-            </Link>
-            <Link
-              to="/servicios"
-              className="rounded-full border border-neutral-300 px-6 py-3 text-sm font-medium text-neutral-700 transition-colors hover:border-neutral-400 hover:text-neutral-900"
-            >
-              Conoce nuestros servicios
-            </Link>
-          </div>
-        </div>
+      <section
+        className="relative flex min-h-[55vh] items-center overflow-hidden bg-cover bg-center sm:min-h-[60vh]"
+        style={{ backgroundImage: `url(${podologo})` }}
+      >
+        <div className="absolute inset-0 bg-white/80" />
 
-        <div className="order-2 md:order-2">
-          <Carousel images={clinicImages} />
-        </div>
+        <div className="relative mx-auto w-full max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
+          <div className="max-w-lg">
+            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-widest text-wood-500">
+              <span className="h-px w-8 bg-wood-400" />
+              Rodrigo Jiménez Martín
+            </div>
+            <h1 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
+              Paso a paso hacia el bienestar
+            </h1>
+            <p className="mt-4 text-base leading-relaxed text-neutral-600 sm:mt-6 md:text-lg">
+              Recupera tu movilidad, alivia el dolor y vuelve a disfrutar de tu día a día. Te acompañamos con tratamientos personalizados de podología y fisioterapia pensados para mejorar tu calidad de vida.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3 sm:mt-8 sm:gap-4">
+              <Link
+                to="/contacto"
+                className="rounded-full bg-wood-400 px-6 py-3 text-sm font-medium text-neutral-900 transition-colors hover:bg-wood-300"
+              >
+                Pedir cita previa
+              </Link>
+              <Link
+                to="/servicios"
+                className="rounded-full border border-neutral-300 bg-white/60 px-6 py-3 text-sm font-medium text-neutral-700 transition-colors hover:border-neutral-400 hover:text-neutral-900"
+              >
+                Conoce nuestros servicios
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
-      <ScrollLine />
+      <div className="bg-linear-to-b from-white via-wood-100 to-white">
+      <section className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16 md:py-20">
+        <h2 className="text-2xl font-semibold tracking-tight text-neutral-900 md:text-3xl">
+          Rodrigo Jiménez Martín, tu experto en podología y fisioterapia
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-neutral-600 sm:mt-6 md:text-lg">
+          Instalaciones modernas y un trato cercano, pensados para que te
+          sientas en las mejores manos desde el primer momento.
+        </p>
 
-      <section>
-        <div className="mx-auto grid max-w-5xl items-center gap-8 px-4 py-12 sm:gap-10 sm:px-6 sm:py-16 md:grid-cols-2 md:gap-16 md:py-20">
-          <div className="order-1 md:order-1">
-            <h2 className="text-2xl font-semibold tracking-tight text-neutral-900 md:text-3xl">
-              Pasión por el cuidado integral: Rodrigo Jiménez Martín, tu
-              experto en podología y fisioterapia
-            </h2>
-            <p className="mt-4 text-justify text-base leading-relaxed text-neutral-600 sm:mt-6 md:text-lg">
-              ¡Bienvenidos! Soy Rodrigo Jiménez Martín, un profesional
-              capacitado para brindarte una atención integral en el campo
-              de la podología y la fisioterapia. Con amplias competencias
-              y una pasión por el cuidado de la salud, mi objetivo
-              principal es ayudarte a mejorar tu bienestar y calidad de
-              vida.
-            </p>
-          </div>
-
-          <div className="order-2 md:order-2">
-            <img
-              src={podologo}
-              alt="Rodrigo Jiménez Martín"
-              className="signature-corner aspect-square w-full object-cover shadow-sm sm:aspect-4/5"
-            />
-          </div>
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:mt-16 sm:grid-cols-4 sm:gap-4">
+          {clinicImages.map((image, index) => (
+            <Reveal
+              key={image.src}
+              delay={index * 60}
+              className={index === 0 ? 'col-span-2 row-span-2' : ''}
+            >
+              <img
+                src={image.src}
+                alt={image.alt}
+                className="aspect-square h-full w-full rounded-2xl object-cover shadow-sm"
+              />
+            </Reveal>
+          ))}
         </div>
       </section>
 
       <ScrollLine />
 
       <section className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16 md:py-20">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-2xl font-semibold tracking-tight text-neutral-900 md:text-3xl">
-            Confía en nuestros expertos para el cuidado integral de tus
-            pies
-          </h2>
-          <p className="mt-4 text-justify text-base leading-relaxed text-neutral-600 sm:mt-6 md:text-lg">
-            En nuestro centro de podología y fisioterapia ofrecemos una
-            amplia gama de servicios: desde la quiropodología y la
-            ortopodología hasta el análisis de la marcha con valoración
-            muscular y los tratamientos invasivos en el pie. Todo lo que
-            necesitas en un solo lugar, porque tu bienestar es nuestra
-            prioridad.
-          </p>
-        </div>
+        <h2 className="text-2xl font-semibold tracking-tight text-neutral-900 md:text-3xl">
+          Confía en nuestros expertos para el cuidado integral de tus pies
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-neutral-600 sm:mt-6 md:text-lg">
+          Todo lo que tus pies y tu cuerpo necesitan, en un solo lugar.
+        </p>
 
-        <div className="mx-auto mt-10 max-w-3xl divide-y divide-neutral-200 border-t border-neutral-200 sm:mt-16">
+        <div className="mt-10 divide-y divide-neutral-200 border-t border-neutral-200 sm:mt-16">
           {services.map((service, index) => (
             <Reveal key={service.title} delay={index * 80}>
               <div className="flex flex-col gap-3 py-6 sm:flex-row sm:items-start sm:gap-8 sm:py-8">
@@ -208,7 +199,7 @@ function Home() {
       </div>
 
       <section
-        className="relative overflow-hidden border-t border-neutral-200 bg-cover bg-center bg-scroll md:bg-fixed"
+        className="relative overflow-hidden border-t border-neutral-200 bg-cover bg-center bg-fixed"
         style={{ backgroundImage: `url(${ctaBackground})` }}
       >
         <div className="absolute inset-0 bg-neutral-900/30" />
