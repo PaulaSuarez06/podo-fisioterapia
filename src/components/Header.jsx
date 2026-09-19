@@ -43,7 +43,7 @@ function Header() {
             src={logo}
             alt="Podo Fisioterapia"
             className={`w-auto transition-all duration-300 ${
-              isScrolled ? 'h-7' : 'h-8'
+              isScrolled ? 'h-10' : 'h-12'
             }`}
           />
         </Link>
@@ -52,12 +52,18 @@ function Header() {
           <NavLink to="/" end className={linkClass}>
             Inicio
           </NavLink>
-          <NavLink to="/servicios" className={linkClass}>
+          <Link
+            to="/#servicios"
+            className="relative py-1 text-sm tracking-wide text-neutral-600 transition-colors after:absolute after:-bottom-1 after:left-0 after:h-[3px] after:w-0 after:rounded-full after:bg-wood-400 after:transition-all after:duration-300 hover:text-neutral-900 hover:after:w-full"
+          >
             Servicios
-          </NavLink>
-          <NavLink to="/contacto" className={linkClass}>
+          </Link>
+          <Link
+            to="/#contacto"
+            className="relative py-1 text-sm tracking-wide text-neutral-600 transition-colors after:absolute after:-bottom-1 after:left-0 after:h-[3px] after:w-0 after:rounded-full after:bg-wood-400 after:transition-all after:duration-300 hover:text-neutral-900 hover:after:w-full"
+          >
             Contacto
-          </NavLink>
+          </Link>
           <a
             href="tel:+34680927023"
             className="text-sm tracking-wide text-neutral-600 transition-colors hover:text-neutral-900"
@@ -65,7 +71,7 @@ function Header() {
             680 927 023
           </a>
           <Link
-            to="/contacto"
+            to="/#contacto"
             className="rounded-full bg-wood-400 px-5 py-2 text-sm font-medium text-neutral-900 transition-colors hover:bg-wood-300"
           >
             Cita previa
@@ -97,20 +103,20 @@ function Header() {
           <NavLink to="/" end className={mobileLinkClass} onClick={() => setIsOpen(false)}>
             Inicio
           </NavLink>
-          <NavLink
-            to="/servicios"
-            className={mobileLinkClass}
+          <Link
+            to="/#servicios"
+            className={mobileLinkClass({ isActive: false })}
             onClick={() => setIsOpen(false)}
           >
             Servicios
-          </NavLink>
-          <NavLink
-            to="/contacto"
-            className={mobileLinkClass}
+          </Link>
+          <Link
+            to="/#contacto"
+            className={mobileLinkClass({ isActive: false })}
             onClick={() => setIsOpen(false)}
           >
             Contacto
-          </NavLink>
+          </Link>
           <a
             href="tel:+34680927023"
             className="text-base tracking-wide text-neutral-600"
@@ -118,7 +124,7 @@ function Header() {
             680 927 023
           </a>
           <Link
-            to="/contacto"
+            to="/#contacto"
             onClick={() => setIsOpen(false)}
             className="rounded-full bg-wood-400 px-5 py-2 text-center text-sm font-medium text-neutral-900 transition-colors hover:bg-wood-300"
           >

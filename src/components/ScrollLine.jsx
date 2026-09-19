@@ -25,7 +25,7 @@ function ScrollLine() {
   return (
     <div ref={ref} className="mx-auto h-px w-full max-w-md overflow-hidden">
       <div
-        className={`h-px w-full max-w-md bg-wood-300 transition-transform duration-700 ease-in ${
+        className={`h-px w-full max-w-md bg-navy-500 transition-transform duration-700 ease-in ${
           phase === 'idle'
             ? '-translate-x-full'
             : phase === 'crossing'
