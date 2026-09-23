@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { MapPin, Clock, Phone, GraduationCap } from 'lucide-react'
+import { MapPin, Clock, Phone, GraduationCap, ExternalLink } from 'lucide-react'
 import ScrollLine from '../components/ScrollLine'
 import ReviewsCarousel from '../components/ReviewsCarousel'
 import ServiceList from '../components/ServiceList'
 import Accordion from '../components/Accordion'
 import Carousel from '../components/Carousel'
 import { useCookieConsent } from '../lib/useCookieConsent'
+import { setConsent } from '../lib/cookieConsent'
 import SEO from '../components/SEO'
 import podologo from '../assets/equipo/rodrigo-consulta.jpg'
 import rodrigoRetrato2 from '../assets/equipo/rodrigo-retrato-2.jpg'
@@ -466,9 +467,14 @@ function Home() {
           <div>
             <div className="flex items-center gap-2 text-neutral-900">
               <MapPin className="h-5 w-5 shrink-0 text-wood-400" strokeWidth={1.5} />
-              <span className="text-sm font-medium">
+              <a
+                href="https://www.google.com/maps?q=41.6462111,-4.720613"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium transition-colors hover:text-wood-500"
+              >
                 C. de Labradores, 33, 47004 Valladolid
-              </span>
+              </a>
             </div>
             <div className="mt-2 flex items-center gap-2 text-neutral-900">
               <Clock className="h-5 w-5 shrink-0 text-wood-400" strokeWidth={1.5} />
@@ -478,27 +484,47 @@ function Home() {
             </div>
             <div className="signature-corner mt-4 h-64 overflow-hidden shadow-sm sm:h-full sm:min-h-64">
               {consent?.functional ? (
-                <iframe
-                  title="Ubicación de la clínica en el mapa"
-                  src="https://www.google.com/maps?q=41.6462111,-4.720613&z=16&output=embed"
-                  className="h-full w-full border-0"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
+                <div className="relative h-full w-full">
+                  <iframe
+                    title="Ubicación de la clínica en el mapa"
+                    src="https://www.google.com/maps?q=41.6462111,-4.720613&z=16&output=embed"
+                    className="h-full w-full border-0"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                  <a
+                    href="https://www.google.com/maps?q=41.6462111,-4.720613"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute bottom-3 right-3 flex items-center gap-1.5 rounded-full bg-wood-400 px-4 py-2.5 text-sm font-semibold text-neutral-900 shadow-md transition-transform hover:scale-105 hover:bg-wood-300"
+                  >
+                    <ExternalLink className="h-4 w-4" strokeWidth={2} />
+                    Abrir en Google Maps
+                  </a>
+                </div>
               ) : (
                 <div className="flex h-full flex-col items-center justify-center gap-3 bg-neutral-100 p-6 text-center">
                   <p className="text-sm text-neutral-600">
                     Acepta las cookies funcionales para ver el mapa
                     interactivo.
                   </p>
-                  <a
-                    href="https://www.google.com/maps?q=41.6462111,-4.720613"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="rounded-full border border-neutral-300 px-5 py-2 text-sm font-medium text-neutral-700 transition-colors hover:border-neutral-400"
-                  >
-                    Ver en Google Maps
-                  </a>
+                  <div className="flex flex-wrap items-center justify-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setConsent(true)}
+                      className="rounded-full bg-wood-400 px-5 py-2 text-sm font-medium text-neutral-900 transition-colors hover:bg-wood-300"
+                    >
+                      Aceptar cookies
+                    </button>
+                    <a
+                      href="https://www.google.com/maps?q=41.6462111,-4.720613"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-full border border-neutral-300 px-5 py-2 text-sm font-medium text-neutral-700 transition-colors hover:border-neutral-400"
+                    >
+                      Ver en Google Maps
+                    </a>
+                  </div>
                 </div>
               )}
             </div>
