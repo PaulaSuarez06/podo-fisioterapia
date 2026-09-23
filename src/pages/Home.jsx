@@ -366,9 +366,10 @@ function Home() {
             <h2 className="text-2xl font-semibold tracking-tight text-neutral-900">
               Rodrigo Jiménez Martín
             </h2>
-            <span className="mt-2 inline-block rounded-full bg-wood-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-wood-500">
+            <span className="mt-2 inline-block text-xs font-semibold uppercase tracking-wide text-navy-500">
               Director de la clínica
             </span>
+            <hr className="mt-4 border-t border-neutral-200" />
           </div>
 
           <div className="grid items-center gap-8 sm:gap-10 md:grid-cols-2 md:gap-16">
@@ -385,16 +386,18 @@ function Home() {
                 <h2 className="text-2xl font-semibold tracking-tight text-neutral-900 md:text-3xl">
                   Rodrigo Jiménez Martín
                 </h2>
-                <span className="mt-2 inline-block rounded-full bg-wood-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-wood-500">
+                <span className="mt-2 inline-block text-xs font-semibold uppercase tracking-wide text-navy-500">
                   Director de la clínica
                 </span>
+                <hr className="mt-4 border-t border-neutral-200" />
               </div>
 
               <div className="mt-6 md:mt-6">
                 <div className="flex items-center gap-2 font-semibold text-neutral-900">
-                  <GraduationCap className="h-5 w-5 shrink-0 text-wood-400" strokeWidth={1.5} />
+             
                   Formación
                 </div>
+                     <hr className="mt-4 border-t border-neutral-200" />
                 <ul className="mt-3 space-y-3 text-sm text-neutral-600">
                   {education.map((item) => (
                     <li key={item.title} className="flex gap-2">
@@ -419,6 +422,7 @@ function Home() {
               <h2 className="text-2xl font-semibold tracking-tight text-neutral-900 md:text-3xl">
                 Nuestra clínica
               </h2>
+                   <hr className="mt-4 border-t border-neutral-200" />
               <p className="mt-4 text-justify text-base leading-relaxed text-neutral-600 sm:mt-6 md:text-lg">
                 Instalaciones modernas y equipadas con la última tecnología,
                 diseñadas para tu comodidad en cada visita.
@@ -439,6 +443,7 @@ function Home() {
           <h2 className="text-2xl font-semibold tracking-tight text-neutral-900 md:text-3xl">
             Servicios especializados de calidad
           </h2>
+               <hr className="mt-4 border-t border-neutral-200" />
           <p className="mt-4 max-w-2xl text-justify text-base leading-relaxed text-neutral-600 sm:mt-6 md:text-lg">
             Un abordaje completo del pie y del cuerpo, con técnicas
             especializadas de podología y fisioterapia adaptadas a cada
@@ -504,15 +509,15 @@ function Home() {
       </section>
 
       <section
-        className="relative overflow-hidden border-t border-neutral-200 bg-cover bg-center bg-fixed"
+        className="relative overflow-hidden border-t border-neutral-200 bg-cover bg-center bg-scroll md:bg-fixed"
         style={{ backgroundImage: `url(${ctaBackground})` }}
       >
         <div className="absolute inset-0 bg-neutral-900/30" />
         <div className="relative mx-auto max-w-2xl px-4 py-12 text-center sm:px-6 sm:py-16 md:py-20">
-          <h2 className="text-2xl font-semibold tracking-tight text-wood-200 md:text-3xl">
+          <h2 className="text-2xl font-semibold tracking-tight text-wood-400 md:text-3xl">
             ¿Listo para cuidar tus pies?
           </h2>
-          <p className="mt-4 text-justify text-base leading-relaxed text-neutral-200 md:text-lg">
+          <p className="mt-4 text-base leading-relaxed text-neutral-200 md:text-lg">
             Pide tu cita previa y da el primer paso hacia tu bienestar.
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:mt-8 sm:gap-4">
