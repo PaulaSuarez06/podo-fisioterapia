@@ -225,6 +225,12 @@ function encodeFormData(data) {
 function Home() {
   const consent = useCookieConsent()
   const [reviews, setReviews] = useState(fallbackReviews)
+  const [heroVisible, setHeroVisible] = useState(false)
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setHeroVisible(true))
+    return () => cancelAnimationFrame(id)
+  }, [])
 
   useEffect(() => {
     fetch('/api/reviews')
@@ -304,27 +310,37 @@ function Home() {
         path="/"
       />
       <section
-        className="relative flex min-h-[55vh] items-center overflow-hidden bg-cover bg-center sm:min-h-[60vh]"
+        className="relative flex min-h-[38vh] items-end overflow-hidden bg-cover bg-center sm:min-h-[60vh] sm:items-center"
         style={{ backgroundImage: `url(${podologo})` }}
       >
         <div className="absolute inset-0 bg-white/80" />
+        <div className="absolute inset-x-0 bottom-0 h-16 bg-linear-to-t from-white to-transparent" />
 
-        <div className="relative mx-auto w-full max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
+        <div className="relative mx-auto w-full max-w-5xl px-4 pb-8 pt-10 sm:px-6 sm:py-20">
           <div className="ml-auto max-w-lg text-right">
-            <div className="flex items-center justify-end gap-3 text-xs font-semibold uppercase tracking-widest text-wood-500">
+            <div
+              className={`flex items-center justify-end gap-3 text-xs font-semibold uppercase tracking-widest text-navy-500 transition-all duration-700 ease-out ${
+                heroVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+              }`}
+            >
               Podología y fisioterapia
-              <span className="h-px w-8 bg-wood-400" />
+              <span className="h-px w-8 bg-navy-500" />
             </div>
-            <h1 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
+            <h1
+              className={`mt-4 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 transition-all duration-700 ease-out sm:text-4xl md:text-5xl ${
+                heroVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+              }`}
+              style={{ transitionDelay: '120ms' }}
+            >
               Paso a paso hacia el bienestar
             </h1>
-            {/* <p className="mt-4 text-justify text-base leading-relaxed text-neutral-600 sm:mt-6 md:text-lg">
-              Recupera tu movilidad, alivia el dolor y vuelve a disfrutar de
-              tu día a día. Te acompañamos con tratamientos personalizados de
-              podología y fisioterapia pensados para mejorar tu calidad de
-              vida.
-            </p> */}
-            <div className="mt-6 flex flex-wrap justify-end gap-3 sm:mt-8 sm:gap-4">
+            
+            <div
+              className={`mt-6 flex flex-wrap justify-end gap-3 transition-all duration-700 ease-out sm:mt-8 sm:gap-4 ${
+                heroVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+              }`}
+              style={{ transitionDelay: '240ms' }}
+            >
               <a
                 href="#contacto"
                 className="rounded-full bg-wood-400 px-6 py-3 text-sm font-medium text-neutral-900 transition-colors hover:bg-wood-300"
@@ -342,9 +358,19 @@ function Home() {
         </div>
       </section>
 
-      <div className="bg-linear-to-b from-white via-wood-100 to-white">
+      <div className="relative bg-linear-to-b from-white via-wood-100 to-white">
+      <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-transparent via-navy-500/10 to-transparent mix-blend-multiply" />
       <section id="clinica">
         <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16 md:py-20">
+          <div className="mb-4 md:hidden">
+            <h2 className="text-2xl font-semibold tracking-tight text-neutral-900">
+              Rodrigo Jiménez Martín
+            </h2>
+            <span className="mt-2 inline-block rounded-full bg-wood-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-wood-500">
+              Director de la clínica
+            </span>
+          </div>
+
           <div className="grid items-center gap-8 sm:gap-10 md:grid-cols-2 md:gap-16">
             <div>
               <img
@@ -355,14 +381,16 @@ function Home() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold tracking-tight text-neutral-900 md:text-3xl">
-                Rodrigo Jiménez Martín
-              </h2>
-              <p className="mt-2 text-sm text-neutral-600">
-                Director de la clínica. 
-              </p>
+              <div className="hidden md:block">
+                <h2 className="text-2xl font-semibold tracking-tight text-neutral-900 md:text-3xl">
+                  Rodrigo Jiménez Martín
+                </h2>
+                <span className="mt-2 inline-block rounded-full bg-wood-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-wood-500">
+                  Director de la clínica
+                </span>
+              </div>
 
-              <div className="mt-6">
+              <div className="mt-6 md:mt-6">
                 <div className="flex items-center gap-2 font-semibold text-neutral-900">
                   <GraduationCap className="h-5 w-5 shrink-0 text-wood-400" strokeWidth={1.5} />
                   Formación
@@ -421,11 +449,11 @@ function Home() {
             <ServiceList items={allServices} />
           </div>
         </div>
-      </section>
 
-      <div className="py-8">
-        <ScrollLine />
-      </div>
+        <div className="pt-8">
+          <ScrollLine />
+        </div>
+      </section>
       </div>
 
       <section className="border-t border-neutral-200 bg-neutral-50">
@@ -657,7 +685,9 @@ function Home() {
               </label>
 
               {recaptchaEnabled ? (
-                <div ref={recaptcha.containerRef} />
+                <div className="overflow-x-auto">
+                  <div ref={recaptcha.containerRef} className="w-fit" />
+                </div>
               ) : (
                 <p className="text-sm text-neutral-500">
                   Para enviar el formulario necesitamos cargar Google
