@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { MapPin, Clock, Phone } from 'lucide-react'
+import { MapPin, Clock, Phone, GraduationCap } from 'lucide-react'
 import ScrollLine from '../components/ScrollLine'
 import ReviewsCarousel from '../components/ReviewsCarousel'
 import ServiceList from '../components/ServiceList'
@@ -23,6 +23,28 @@ const clinicImages = [
   { src: clinica01, alt: 'Box de tratamiento 2' },
   { src: clinica05, alt: 'Box de tratamiento con equipo de ecografía' },
   { src: clinica03, alt: 'Fachada de la clínica' },
+]
+
+const education = [
+  {
+    title: 'Grado en Podología',
+    detail: 'Universidad Católica de Valencia (UCV) · Colegiado nº 838470450',
+  },
+  {
+    title: 'Grado en Fisioterapia',
+    detail: 'Universidad Católica de Valencia (UCV) · Colegiado nº 4291',
+  },
+  {
+    title: 'Máster propio en técnicas quirúrgicas de patología del pie',
+    detail: 'Universidad Católica de Valencia (UCV)',
+  },
+  { title: 'Formación en ecografía de pie y tobillo' },
+  { title: 'Curso de cirugía ungueal', detail: 'Universidad de Manresa' },
+  { title: 'Curso de punción seca y puntos gatillo', detail: 'Fisiocyl' },
+  {
+    title: 'Curso de peritaje judicial',
+    detail: 'Colegio Oficial de Podólogos',
+  },
 ]
 
 const allServices = [
@@ -288,21 +310,21 @@ function Home() {
         <div className="absolute inset-0 bg-white/80" />
 
         <div className="relative mx-auto w-full max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
-          <div className="max-w-lg">
-            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-widest text-wood-500">
+          <div className="ml-auto max-w-lg text-right">
+            <div className="flex items-center justify-end gap-3 text-xs font-semibold uppercase tracking-widest text-wood-500">
+              Podología y fisioterapia
               <span className="h-px w-8 bg-wood-400" />
-              Rodrigo Jiménez Martín
             </div>
             <h1 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-neutral-900 sm:text-4xl md:text-5xl">
               Paso a paso hacia el bienestar
             </h1>
-            <p className="mt-4 text-base leading-relaxed text-neutral-600 sm:mt-6 md:text-lg">
+            {/* <p className="mt-4 text-justify text-base leading-relaxed text-neutral-600 sm:mt-6 md:text-lg">
               Recupera tu movilidad, alivia el dolor y vuelve a disfrutar de
               tu día a día. Te acompañamos con tratamientos personalizados de
               podología y fisioterapia pensados para mejorar tu calidad de
               vida.
-            </p>
-            <div className="mt-6 flex flex-wrap gap-3 sm:mt-8 sm:gap-4">
+            </p> */}
+            <div className="mt-6 flex flex-wrap justify-end gap-3 sm:mt-8 sm:gap-4">
               <a
                 href="#contacto"
                 className="rounded-full bg-wood-400 px-6 py-3 text-sm font-medium text-neutral-900 transition-colors hover:bg-wood-300"
@@ -334,24 +356,28 @@ function Home() {
 
             <div>
               <h2 className="text-2xl font-semibold tracking-tight text-neutral-900 md:text-3xl">
-                Rodrigo Jiménez Martín, tu experto en podología y
-                fisioterapia
+                Rodrigo Jiménez Martín
               </h2>
-              <p className="mt-4 text-base leading-relaxed text-neutral-600 sm:mt-6 md:text-lg">
-                Un trato cercano y personalizado, pensado para que te
-                sientas en las mejores manos desde el primer momento.
+              <p className="mt-2 text-sm text-neutral-600">
+                Director de la clínica. 
               </p>
-              <div className="mt-6 rounded-2xl bg-white/70 p-5 text-sm text-neutral-700">
-                <p className="font-semibold text-neutral-900">
-                  Rodrigo Jiménez Martín
-                </p>
-                <p className="text-neutral-600">
-                  Podólogo y Fisioterapeuta colegiado
-                </p>
-                <p className="mt-2">
-                  Podólogo con número de colegiado: 838470450
-                </p>
-                <p>Fisioterapeuta con número de colegiado: 4291</p>
+
+              <div className="mt-6">
+                <div className="flex items-center gap-2 font-semibold text-neutral-900">
+                  <GraduationCap className="h-5 w-5 shrink-0 text-wood-400" strokeWidth={1.5} />
+                  Formación
+                </div>
+                <ul className="mt-3 space-y-3 text-sm text-neutral-600">
+                  {education.map((item) => (
+                    <li key={item.title} className="flex gap-2">
+                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-wood-400" />
+                      <span>
+                        <span className="text-neutral-900">{item.title}</span>
+                        {item.detail && <> — {item.detail}</>}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
@@ -365,7 +391,7 @@ function Home() {
               <h2 className="text-2xl font-semibold tracking-tight text-neutral-900 md:text-3xl">
                 Nuestra clínica
               </h2>
-              <p className="mt-4 text-base leading-relaxed text-neutral-600 sm:mt-6 md:text-lg">
+              <p className="mt-4 text-justify text-base leading-relaxed text-neutral-600 sm:mt-6 md:text-lg">
                 Instalaciones modernas y equipadas con la última tecnología,
                 diseñadas para tu comodidad en cada visita.
               </p>
@@ -385,7 +411,7 @@ function Home() {
           <h2 className="text-2xl font-semibold tracking-tight text-neutral-900 md:text-3xl">
             Servicios especializados de calidad
           </h2>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-neutral-600 sm:mt-6 md:text-lg">
+          <p className="mt-4 max-w-2xl text-justify text-base leading-relaxed text-neutral-600 sm:mt-6 md:text-lg">
             Un abordaje completo del pie y del cuerpo, con técnicas
             especializadas de podología y fisioterapia adaptadas a cada
             paciente.
@@ -458,7 +484,7 @@ function Home() {
           <h2 className="text-2xl font-semibold tracking-tight text-wood-200 md:text-3xl">
             ¿Listo para cuidar tus pies?
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-neutral-200 md:text-lg">
+          <p className="mt-4 text-justify text-base leading-relaxed text-neutral-200 md:text-lg">
             Pide tu cita previa y da el primer paso hacia tu bienestar.
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:mt-8 sm:gap-4">
@@ -483,7 +509,7 @@ function Home() {
           <h2 className="text-2xl font-semibold tracking-tight text-neutral-900 md:text-3xl">
             Contacto
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-neutral-600 md:text-lg">
+          <p className="mt-4 text-justify text-base leading-relaxed text-neutral-600 md:text-lg">
             Ponte en contacto con nosotros y pide tu cita previa.
           </p>
 
